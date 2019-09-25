@@ -74,6 +74,8 @@ public final class RegistrationCoreConstants {
 
 	public static final String GP_BIRTHDATE_ESTIMATION_START_MONTH = "registrationcore.birthdateEstimationStartMonth";
 
+	public static final String GP_BIRTHDATE_ESTIMATION_START_DATE ="registrationcore.birthdateEstimationStartDate";
+
     public static final String GP_BIOMETRICS_IMPLEMENTATION = "registrationcore.biometrics.implementation";
 
 	public static final String GP_MPI_PDQ_ENDPOINT= "registrationcore.mpi.pdqEndpoint";

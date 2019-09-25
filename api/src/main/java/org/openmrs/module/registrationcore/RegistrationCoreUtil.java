@@ -38,7 +38,7 @@ public class RegistrationCoreUtil {
         if (months != null) {
             c.add(Calendar.MONTH, -1 * months);
         }
-        else if (days == null || days == 0){
+        else if (months == null || days == 0){
             c.set(Calendar.MONTH, getEstimationStartMonth());
         }
 
@@ -47,7 +47,7 @@ public class RegistrationCoreUtil {
             c.add(Calendar.DAY_OF_MONTH, -1 * days);
         }
         else if (days == null || days == 0){
-            c.set(Calendar.DAY_OF_MONTH,1);
+            c.set(Calendar.DAY_OF_MONTH,getEstimationStartDate());
         }
 
         return c.getTime();
@@ -68,7 +68,24 @@ public class RegistrationCoreUtil {
                 log.warn("Unable to parse value of " + RegistrationCoreConstants.GP_BIRTHDATE_ESTIMATION_START_MONTH,  nfe);
             }
         }
-        
+
         return startMonth;
     }
+
+    public static int getEstimationStartDate() {
+        int startDate = 1;
+        String gpStartDate = Context.getAdministrationService().getGlobalProperty(RegistrationCoreConstants.GP_BIRTHDATE_ESTIMATION_START_DATE);
+        if (StringUtils.isNotBlank(gpStartDate)) {
+            try {
+                startDate = Integer.parseInt(gpStartDate);
+            } catch (NumberFormatException nfe) {
+                log.warn("Unable to parse value of " + RegistrationCoreConstants.GP_BIRTHDATE_ESTIMATION_START_DATE,  nfe);
+            }
+        }
+
+        return startDate;
+    }
+
+
+
 }

@@ -140,9 +140,16 @@
 	
 	<globalProperty>
 		<property>${project.parent.artifactId}.birthdateEstimationStartMonth</property>
-		<defaultValue>0</defaultValue>
+		<defaultValue>5</defaultValue>
 		<description>
 			The month from which the birth date is estimated, with January having a value of 0
+		</description>
+	</globalProperty>
+	<globalProperty>
+		<property>${project.parent.artifactId}.birthdateEstimationStartDate</property>
+		<defaultValue>15</defaultValue>
+		<description>
+			The day from which the birth date is estimated, with 1st having a value of 1
 		</description>
 	</globalProperty>
 
